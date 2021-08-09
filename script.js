@@ -657,7 +657,7 @@ function main() {
 
         gl.useProgram(displayShader);
         gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, density[dFrame].cb);
+        gl.bindTexture(gl.TEXTURE_2D, pressure[pFrame].cb);
         
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
         gl.enableVertexAttribArray(displayAttrib);
