@@ -14,7 +14,7 @@ const h = 0.7;
 const objX = 0.2;
 const objY = 0.5;
 const objSize = 0.08;
-const steps = 20;
+const steps = 10;
 
 const easingRate = 0.02;
 
