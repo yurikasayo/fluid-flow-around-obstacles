@@ -62,7 +62,7 @@ function main() {
     function touchMove(e) {
         e.preventDefault();
         const offsetX = e.touches[0].pageX - canvas.offsetLeft;    
-        const offsetY = e.touches[0].pageY - canvas.offsetTop;
+        const offsetY = e.touches[0].pageY - canvas.offsetTop - height / 2;
         brightness0 = Math.exp(-offsetX * 0.002);
         addY0 = offsetY / 4;
     }
