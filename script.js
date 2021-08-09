@@ -68,7 +68,7 @@ function main() {
         addY0 = offsetY * frameHeight / height;
     }
 
-    gl = canvas.getContext('webgl');
+    gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
     if (!gl) {
         alert('Unable to initialize WebGL. Your browser or machine may not support it.');
         return;
