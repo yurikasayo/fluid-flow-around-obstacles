@@ -55,7 +55,7 @@ function main() {
     
     
     function mouseMove(e) {
-        brightness0 = Math.exp(-e.offsetX / width * 0.1);
+        brightness0 = Math.exp(-e.offsetX / width);
         addY0 = e.offsetY * frameHeight / height;
     }
 
@@ -64,7 +64,7 @@ function main() {
         e.preventDefault();
         const offsetX = e.touches[0].pageX - canvas.offsetLeft;    
         const offsetY = e.touches[0].pageY - canvas.offsetTop + height / 2;
-        brightness0 = Math.exp(-offsetX / width * 0.1);
+        brightness0 = Math.exp(-offsetX / width);
         addY0 = offsetY * frameHeight / height;
     }
 
