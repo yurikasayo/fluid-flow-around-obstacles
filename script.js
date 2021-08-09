@@ -50,20 +50,20 @@ function main() {
     // マウス・タッチイベント
     // mouse events and touch events
     canvas.addEventListener('mousemove', mouseMove, true);
-    canvas.addEventListener('touchmove', touchMove, true);
+    canvas.addEventListener('touchmove', touchMove, false);
     
     
     function mouseMove(e) {
-        brightness0 = Math.exp(-e.offsetX * 0.003);
+        brightness0 = Math.exp(-e.offsetX * 0.002);
         addY0 = e.offsetY / 4;
     }
 
 
     function touchMove(e) {
         e.preventDefault();
-        const offsetX = e.touches[0].pageX - canvas.offsetLeft;     
+        const offsetX = e.touches[0].pageX - canvas.offsetLeft;    
         const offsetY = e.touches[0].pageY - canvas.offsetTop;
-        brightness0 = Math.exp(-offsetX * 0.003);
+        brightness0 = Math.exp(-offsetX * 0.002);
         addY0 = offsetY / 4;
     }
 
