@@ -51,6 +51,21 @@ function main() {
     // mouse events and touch events
     canvas.addEventListener('mousemove', mouseMove, true);
     canvas.addEventListener('touchmove', touchMove, true);
+    
+    
+    function mouseMove(e) {
+        brightness0 = Math.exp(-e.offsetX * 0.003);
+        addY0 = e.offsetY / 4;
+    }
+
+
+    function touchMove(e) {
+        e.preventDefault();
+        e.offsetX = e.touches[0].pageX - e.touches[0].target.offsetLeft;     
+        e.offsetY = e.touches[0].pageY - e.touches[0].target.offsetTop;
+        brightness0 = Math.exp(-e.offsetX * 0.003);
+        addY0 = e.offsetY / 4;
+    }
 
     gl = canvas.getContext('webgl');
     if (!gl) {
@@ -661,19 +676,6 @@ function main() {
         requestAnimationFrame(render);
     }
     requestAnimationFrame(render);
-}
-
-
-function mouseMove(e) {
-    brightness0 = Math.exp(-e.offsetX * 0.003);
-    addY0 = e.offsetY / 4;
-}
-
-
-function touchMove(e) {
-    e.preventDefault();
-    brightness0 = Math.exp(-e.offsetX * 0.003);
-    addY0 = e.offsetY / 4;
 }
 
 
