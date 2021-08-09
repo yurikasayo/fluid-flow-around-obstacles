@@ -2,6 +2,9 @@ let gl;
 
 // パラメータの設定
 // set the parameters
+const frameWidth = 256;
+const frameHeight = 128;
+
 const u0 = 0.3 + 0.5;
 const v0 = 0.0 + 0.5;
 const p0 = 0.5;
@@ -44,18 +47,16 @@ function main() {
 
     const width = canvas.width;
     const height = canvas.height;
-    const frameWidth = Math.floor(width / 4);
-    const frameHeight = Math.floor(height / 4);
 
     // マウス・タッチイベント
     // mouse events and touch events
     canvas.addEventListener('mousemove', mouseMove, true);
-    canvas.addEventListener('touchmove', touchMove, false);
+    canvas.addEventListener('touchmove', touchMove, true);
     
     
     function mouseMove(e) {
-        brightness0 = Math.exp(-e.offsetX * 0.002);
-        addY0 = e.offsetY / 4;
+        brightness0 = Math.exp(-e.offsetX / width * 0.5);
+        addY0 = e.offsetY * frameHeight / height;
     }
 
 
@@ -63,8 +64,8 @@ function main() {
         e.preventDefault();
         const offsetX = e.touches[0].pageX - canvas.offsetLeft;    
         const offsetY = e.touches[0].pageY - canvas.offsetTop + height / 2;
-        brightness0 = Math.exp(-offsetX * 0.002);
-        addY0 = offsetY / 4;
+        brightness0 = Math.exp(-offsetX / width * 0.5);
+        addY0 = offsetY * frameHeight / height;
     }
 
     gl = canvas.getContext('webgl');
