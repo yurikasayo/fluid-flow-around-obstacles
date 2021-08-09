@@ -61,10 +61,10 @@ function main() {
 
     function touchMove(e) {
         e.preventDefault();
-        e.offsetX = e.touches[0].pageX - e.touches[0].target.offsetLeft;     
-        e.offsetY = e.touches[0].pageY - e.touches[0].target.offsetTop;
-        brightness0 = Math.exp(-e.offsetX * 0.003);
-        addY0 = e.offsetY / 4;
+        const offsetX = e.touches[0].pageX - canvas.offsetLeft;     
+        const offsetY = e.touches[0].pageY - canvas.offsetTop;
+        brightness0 = Math.exp(-offsetX * 0.003);
+        addY0 = offsetY / 4;
     }
 
     gl = canvas.getContext('webgl');
